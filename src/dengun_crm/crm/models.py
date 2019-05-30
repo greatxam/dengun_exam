@@ -17,7 +17,7 @@ class Contact(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return  "{}, {}".format(self.first_name, self.last_name)
+        return  "{}, {} ({})".format(self.first_name, self.last_name, self.email)
 
 class Campaign(models.Model):
     class Meta:
@@ -27,6 +27,7 @@ class Campaign(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subject = models.CharField(max_length=100)
     message = models.TextField()
+    contacts = models.ManyToManyField('Contact', through='CampaignContact')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -47,7 +48,7 @@ class CampaignContact(models.Model):
         unique_together = (('campaign', 'contact'))
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='contacts')
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
     status = models.PositiveSmallIntegerField(default=PENDING, choices=STATUS)
     created = models.DateTimeField(auto_now_add=True)
