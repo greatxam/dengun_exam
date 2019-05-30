@@ -3,6 +3,15 @@
 ## [Unreleased]
 - Mailgun webhook
 
+## [Issues]
+- Having issue importing models into Celery tasks.py
+- Mailgun sometimes failed due to spamming
+- Mailgun account temporarily disable
+
+## [0.0.4] - 30-05-2019
+### Changed
+- Use Google mail, instead of Mailgun
+
 ## [0.0.3] - 30-05-2019
 ### Added
 - Mailgum smtp config

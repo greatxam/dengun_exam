@@ -15,8 +15,9 @@ def async_send_campaign_email(json_campaign, json_contact):
     context = {
         'campaign': campaign[0],
         'contact':contact[0]}
-
-    print("<Celery Task: {}>".format(context))
+    print("<Celery Task: {subject}, {email}>".format(
+        subject=campaign[0]['fields']['subject'],
+        email=contact[0]['fields']['email']))
 
     # email content
     text_email = get_template('crm/campaign_email.txt')
