@@ -1,0 +1,13 @@
+# Created by Maximillian M. Estrada on 30-May-2019
+
+version: "3.1"
+
+services:
+  app:
+    build: .
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8080"
+    volumes:
+      - ./src/dengun_crm:/dengun_crm
+    ports:
+      - "8080:8080"
