@@ -12,7 +12,7 @@ class Contact(models.Model):
     middle_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
-    contact_number = models.CharField(max_length=20)
+    contact_number = models.CharField(max_length=20, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
