@@ -5,7 +5,7 @@
 # Use an official Python 3 runtime as our base image
 FROM python:3.7
 
-MAINTAINER greatxam
+MAINTAINER maxestrada
 
 ENV PYTHONUNBUFFERED 1
 

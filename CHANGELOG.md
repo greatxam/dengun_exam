@@ -4,9 +4,18 @@
 - Mailgun webhook
 
 ## [Issues]
-- Having issue importing models into Celery tasks.py
 - Mailgun sometimes failed due to spamming
 - Mailgun account temporarily disable
+
+## [0.0.5] - 30-05-2019
+### Added
+- Auto update campaigncontact status field
+
+### Changed
+- Just send the campaign pk into the celery task
+
+### Removed
+- JSON serializer
 
 ## [0.0.4] - 30-05-2019
 ### Changed
