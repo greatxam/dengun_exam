@@ -2,6 +2,9 @@
 
 import uuid
 from django.db import models
+from django.core import serializers
+
+from crm.tasks import async_send_campaign_email
 
 class Contact(models.Model):
     class Meta:
@@ -33,6 +36,15 @@ class Campaign(models.Model):
 
     def __str__(self):
         return "{}".format(self.subject)
+
+    def save(self):
+        super().save()
+
+        for i in self.campaigncontact_set.all():
+            json_campaign = serializers.serialize('json', [i.campaign])
+            json_contact = serializers.serialize('json', [i.contact])
+            # celery task
+            async_send_campaign_email.delay(json_campaign, json_contact)
 
 class CampaignContact(models.Model):
     PENDING,    SENT,   FAILED, = \

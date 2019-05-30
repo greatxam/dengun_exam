@@ -3,7 +3,8 @@
 version: "3.1"
 
 services:
-  app:
+  # dengun_crm app service
+  app: &app
     build: .
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8080"
@@ -11,3 +12,16 @@ services:
       - ./src/dengun_crm:/dengun_crm
     ports:
       - "8080:8080"
+    depends_on:
+      - rabbitmq
+      - celery_worker
+  # rabbitmq service
+  rabbitmq:
+      image: rabbitmq:3.7-alpine
+  # celery worker service
+  celery_worker:
+    <<: *app
+    command: sh -c "celery -A dengun_crm worker --loglevel=info"
+    ports: []
+    depends_on:
+      - rabbitmq

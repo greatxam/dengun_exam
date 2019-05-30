@@ -14,6 +14,7 @@
 # Requirements
 * [Python 3.7](https://www.python.org/downloads/)
 * [Celery 4.3](http://www.celeryproject.org/)
+* [RabbitMQ 3.7](https://www.rabbitmq.com)
 * [Docker](https://www.docker.com/)
 
 # Starting up the Server

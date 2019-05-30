@@ -1,0 +1,6 @@
+Hello {{contact.fields.first_name}} {{contact.fields.last_name }}
+
+{{ campaign.fields.message }}
+
+Thank you,
+Dengun CRM

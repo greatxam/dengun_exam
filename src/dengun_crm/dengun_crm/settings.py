@@ -119,3 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# SMTP Config
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_HOST_USER = "postmaster@sandbox364a9a4b07cd492b9b54a0bcc0edaa77.mailgun.org"
+EMAIL_HOST_PASSWORD = "69bcdc29fc97e50e2a6f0a3be49b6461-39bc661a-050c5f54"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+ADMIN_EMAIL = "{} <{}>".format("Dengun CRM", "denguncrm@test.com")
+
+CELERY_BROKER_URL = "amqp://rabbitmq"

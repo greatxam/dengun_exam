@@ -1,7 +1,13 @@
 # Dengu Exam
 
 ## [Unreleased]
-- Asynchronous email sending
+- Mailgun webhook
+
+## [0.0.3] - 30-05-2019
+### Added
+- Mailgum smtp config
+- Celery async tasks
+- RabbitMQ
 
 ## [0.0.2] - 30-05-2019
 ### Added
